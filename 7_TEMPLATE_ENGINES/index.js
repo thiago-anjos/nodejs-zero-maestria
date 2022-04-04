@@ -3,7 +3,14 @@ const exphbs = require("express-handlebars");
 
 const app = express();
 
-app.engine("handlebars", exphbs.engine());
+//configurando o partials
+
+const hbs = exphbs.create({
+  partialsDir: ["views/partials"],
+});
+
+app.engine("handlebars", hbs.engine());
+
 app.set("view engine", "handlebars");
 
 app.get("/admin", (req, res) => {

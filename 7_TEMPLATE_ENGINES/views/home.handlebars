@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Olá handlebars</h1>
-  </body>
-</html>
+<h1>{{title}}</h1>
+<p>Eu sou um body?</p>
+<p>O nome do usuário é {{user.name}} e ele tem {{user.age}}</p>
+
+<p>condicional</p>
+
+{{#if auth}}Você está autenticado, clique
+  <a href="/admin">clique aqui</a>
+{{/if}}
+
+{{#if approved}} Seu cadastro foi aprovado {{else}}Seu cadastro não foi aprovado{{/if}}
+<br />
+<br />
+<br />
+
+<h2>lista</h2>
+
+<ul>
+  {{#each items}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>

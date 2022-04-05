@@ -45,4 +45,18 @@ app.get("/post", (req, res) => {
   res.render("blog", { post });
 });
 
+app.get("blog", (req, res) => {
+  const posts = [
+    { title: "titulo 1", category: "node", body: "nodejs", comments: 1 },
+    {
+      title: "titulo 2",
+      category: "javascript",
+      body: "javascript body",
+      comments: 2,
+    },
+    { title: "titulo 3", category: "luna", body: "luna body", comments: 3 },
+  ];
+  res.render("posts", { posts });
+});
+
 app.listen(3000);

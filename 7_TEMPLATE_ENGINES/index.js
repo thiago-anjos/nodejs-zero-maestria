@@ -9,9 +9,11 @@ const hbs = exphbs.create({
   partialsDir: ["views/partials"],
 });
 
-app.engine("handlebars", hbs.engine());
+app.engine("handlebars", exphbs.engine());
 
 app.set("view engine", "handlebars");
+
+app.use(express.static("public"));
 
 app.get("/admin", (req, res) => {
   res.render("admin");
@@ -45,7 +47,7 @@ app.get("/post", (req, res) => {
   res.render("blog", { post });
 });
 
-app.get("blog", (req, res) => {
+app.get("/blog", (req, res) => {
   const posts = [
     { title: "titulo 1", category: "node", body: "nodejs", comments: 1 },
     {
@@ -56,7 +58,7 @@ app.get("blog", (req, res) => {
     },
     { title: "titulo 3", category: "luna", body: "luna body", comments: 3 },
   ];
-  res.render("posts", { posts });
+  res.render("blog", { posts });
 });
 
 app.listen(3000);

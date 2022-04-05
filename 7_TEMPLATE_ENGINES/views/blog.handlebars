@@ -1,5 +1,5 @@
-{{#with post}}
-  <h1>{{title}}</h1>
-  <h1>{{category}}</h1>
-  <h1>{{body}}</h1>
-{{/with}}
+<h1>Veja nossos posts</h1>
+
+{{#each posts}}
+  {{>post}}
+{{/each}}

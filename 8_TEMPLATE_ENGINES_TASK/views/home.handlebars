@@ -1,0 +1,10 @@
+<h1>Bem vindo a nossa loja</h1>
+
+<h3>Veja nossa lista de produtos</h3>
+
+{{#each products}}
+  <div class="products">
+    <p>Produto: {{this.name}}</p>
+    <a href="/product/{{this.id}}">Clique aqui</a>
+  </div>
+{{/each}}

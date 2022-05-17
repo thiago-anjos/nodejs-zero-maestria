@@ -93,6 +93,19 @@ app.post("/books/updatebook", (req, res) => {
   });
 });
 
+app.post("/books/delete/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `DELETE FROM books WHERE id = ${id}`;
+
+  conn.query(sql, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/books");
+  });
+});
+
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",

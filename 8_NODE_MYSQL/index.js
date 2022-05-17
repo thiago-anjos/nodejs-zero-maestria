@@ -32,8 +32,21 @@ app.get("/books", (req, res) => {
       return;
     }
     const books = data;
-    console.log(books);
     res.render("books", { books });
+  });
+});
+
+app.get("/book/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `SELECT * FROM books WHERE id = ${id}`;
+
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    const book = data[0];
+    res.render("book", { book });
   });
 });
 

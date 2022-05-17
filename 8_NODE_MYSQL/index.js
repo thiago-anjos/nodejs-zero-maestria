@@ -1,6 +1,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-const mysql = require("mysql");
+const pool = require("./db/conn");
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 app.get("/books", (req, res) => {
   const sql = "SELECT * FROM books";
 
-  conn.query(sql, (err, data) => {
+  pool.query(sql, (err, data) => {
     if (err) {
       console.log(err);
       return;
@@ -40,7 +40,7 @@ app.get("/book/:id", (req, res) => {
   const id = req.params.id;
   const sql = `SELECT * FROM books WHERE id = ${id}`;
 
-  conn.query(sql, (err, data) => {
+  pool.query(sql, (err, data) => {
     if (err) {
       console.log(err);
       return;
@@ -56,7 +56,7 @@ app.post("/books/insertbook", (req, res) => {
 
   const sql = `INSERT INTO books (title, pageqty) VALUES ('${title}', '${pageqty}')`;
 
-  conn.query(sql, (err) => {
+  pool.query(sql, (err) => {
     if (err) {
       console.log(err);
     }
@@ -68,7 +68,7 @@ app.get("/books/edit/:id", (req, res) => {
   const id = req.params.id;
   const sql = `SELECT * FROM books WHERE id = ${id}`;
 
-  conn.query(sql, (err, data) => {
+  pool.query(sql, (err, data) => {
     if (err) {
       console.log(err);
       return;
@@ -85,7 +85,7 @@ app.post("/books/updatebook", (req, res) => {
 
   const sql = `UPDATE books SET title= '${title}', pageqty = '${pageqty}' WHERE id = ${id}`;
 
-  conn.query(sql, (err) => {
+  pool.query(sql, (err) => {
     if (err) {
       console.log(err);
     }
@@ -98,7 +98,7 @@ app.post("/books/delete/:id", (req, res) => {
 
   const sql = `DELETE FROM books WHERE id = ${id}`;
 
-  conn.query(sql, (err) => {
+  pool.query(sql, (err) => {
     if (err) {
       console.log(err);
     }
@@ -106,18 +106,4 @@ app.post("/books/delete/:id", (req, res) => {
   });
 });
 
-const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "nodemysql2",
-});
-
-conn.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Conectou com mysql");
-    app.listen(3000);
-  }
-});
+app.listen(3000);

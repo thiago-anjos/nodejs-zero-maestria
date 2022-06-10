@@ -20,24 +20,66 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+//EDIÇÃO
+app.get("/users/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findOne({ raw: true, where: { id: id } });
+
+  const newsletter = user.newsletter === 1 ? true : false;
+
+  res.render("userInfo", { user, newsletter, edit: true });
+});
+
+app.post("/users/edit", async (req, res) => {
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let newsletter = req.body.newsletter;
+  let id = req.body.id;
+  newsletter === "on" ? (newsletter = true) : (newsletter = false);
+
+  const userData = {
+    id,
+    name,
+    occupation,
+    newsletter,
+  };
+
+  await User.update(userData, { where: { id: id } });
+
+  res.redirect("/");
+});
+
+//CRIAÇÃO
 app.post("/users/create", async (req, res) => {
   let name = req.body.name;
   let occupation = req.body.occupation;
   let newsletter = req.body.newsletter;
-
   newsletter === "on" ? (newsletter = true) : (newsletter = false);
-
-  console.log("dados de criação do usuário", req.body);
-
   await User.create({ name, occupation, newsletter });
 
   res.redirect("/");
 });
 
 app.get("/users/create", (req, res) => {
-  res.render("addUser");
+  res.render("userInfo");
 });
 
+//USUÁRIO
+app.get("/users/:id", async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findOne({ raw: true, where: { id: id } });
+  res.render("userview", { user });
+});
+
+//DELETAR USUARIO
+app.post("/users/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  await User.destroy({ where: { id: id } });
+
+  res.redirect("/");
+});
+
+//LISTAR USUÁRIO
 app.get("/", async (req, res) => {
   const users = await User.findAll({ raw: true });
 

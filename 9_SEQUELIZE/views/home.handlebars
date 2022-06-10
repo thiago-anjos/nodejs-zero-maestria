@@ -1,13 +1,21 @@
 <h1>Usuários cadastrados</h1>
 
 <div class="container">
-  <ul>
+  <div class="list-container">
     {{#each users}}
-      <li>
+      <div class="list">
         <p>Nome: {{this.name}}</p>
         <p>Profissão: {{this.occupation}}</p>
         <p>Quer receber newsletters: {{this.newsletter}}</p>
-      </li>
+        <div class="actions">
+          <form action="/users/delete/{{this.id}}" method="post">
+            <input type="submit" value="Exluir" class="btn-delete" />
+          </form>
+          <a href="/users/{{this.id}}">Ver detalhes</a>
+          <a href="/users/edit/{{this.id}}">Editar</a>
+        </div>
+      </div>
+
     {{/each}}
-  </ul>
+  </div>
 </div>

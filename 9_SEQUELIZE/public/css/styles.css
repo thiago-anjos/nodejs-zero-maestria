@@ -18,6 +18,16 @@ ul li {
   list-style-type: none;
 }
 
+.list-container {
+  display: flex;
+}
+
+.list {
+  border: 1px solid blue;
+  font-size: 16px;
+  padding: 16px;
+}
+
 .form {
   width: 450px;
   margin: 0 auto;
@@ -43,4 +53,18 @@ ul li {
 
 .form-control input {
   padding: 5px;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions a,
+.actions input {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }

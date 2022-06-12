@@ -24,11 +24,15 @@ app.use(express.static("public"));
 //EDIÇÃO
 app.get("/users/edit/:id", async (req, res) => {
   const id = req.params.id;
-  const user = await User.findOne({ raw: true, where: { id: id } });
+  const user = await User.findOne({ include: Address, where: { id: id } });
 
   const newsletter = user.newsletter === 1 ? true : false;
 
-  res.render("userInfo", { user, newsletter, edit: true });
+  res.render("userInfo", {
+    user: user.get({ plain: true }),
+    newsletter,
+    edit: true,
+  });
 });
 
 app.post("/users/edit", async (req, res) => {

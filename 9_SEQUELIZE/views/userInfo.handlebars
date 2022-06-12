@@ -48,4 +48,29 @@
       <input type="submit" value="Cadastrar" />
   {{/if}}
 </form>
+
+<div class="address-container">
+  <h2>Endereço</h2>
+  <form action="/address/create" method="post">
+    <input type="hidden" name="UserId" value="{{this.user.id}}">
+    <div class="form-control">
+        <label for="street">Rua:</label>
+        <input type="text" name="street" id="" placeholder="Digite a rua">
+    </div>
+    <div class="form-control">
+        <label for="number">Número:</label>
+        <input type="text" name="number" id="" placeholder="Digite o número da residência">
+    </div>
+    <div class="form-control">
+        <label for="city">Cidade:</label>
+        <input type="text" name="city" id="" placeholder="Digite a cidade">
+    </div>
+    {{#if edit}}
+      <input type="submit" value="Editar" />
+    {{else}}
+        <input type="submit" value="Cadastrar" />
+    {{/if}}  
+  </form>
+</div>
+
 <a href="/">Voltar</a>

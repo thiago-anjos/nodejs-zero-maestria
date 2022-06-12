@@ -80,6 +80,26 @@ app.post("/users/delete/:id", async (req, res) => {
   res.redirect("/");
 });
 
+// ENDEREÇO
+app.post("/address/create", async (req, res) => {
+  console.log(req.body);
+  const UserId = req.body.UserId;
+  const street = req.body.street;
+  const number = req.body.number;
+  const city = req.body.city;
+
+  const address = {
+    UserId,
+    street,
+    number,
+    city,
+  };
+
+  await Address.create(address);
+
+  res.redirect(`/users/edit/${UserId}`);
+});
+
 //LISTAR USUÁRIO
 app.get("/", async (req, res) => {
   const users = await User.findAll({ raw: true });

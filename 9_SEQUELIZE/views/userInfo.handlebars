@@ -73,4 +73,12 @@
   </form>
 </div>
 
+<h2>lista de endereços cadastrados</h2>
+
+<div class="address-list">
+  {{#each this.user.Addresses}}
+    <p>#{{this.id}} - {{this.street}} - {{this.number}} - {{this.city}}</p>
+  {{/each}}
+</div>
+
 <a href="/">Voltar</a>

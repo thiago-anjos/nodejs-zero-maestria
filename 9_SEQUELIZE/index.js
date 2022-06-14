@@ -90,6 +90,17 @@ app.post("/users/delete/:id", async (req, res) => {
   res.redirect("/");
 });
 
+//DELETAR ENDEREÇO
+
+app.post("/address/delete", async (req, res) => {
+  const id = req.body.id;
+  const UserId = req.body.UserId;
+
+  await Address.destroy({ where: { id: id } });
+
+  res.redirect(`/users/edit/${UserId}`);
+});
+
 // ENDEREÇO
 app.post("/address/create", async (req, res) => {
   console.log(req.body);

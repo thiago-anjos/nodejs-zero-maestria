@@ -78,6 +78,11 @@
 <div class="address-list">
   {{#each this.user.Addresses}}
     <p>#{{this.id}} - {{this.street}} - {{this.number}} - {{this.city}}</p>
+    <form action="/address/delete" method="post">
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input type="hidden" name="UserId" value="{{this.UserId}}">
+      <input type="submit" value="Remover endereço">
+    </form>
   {{/each}}
 </div>
 

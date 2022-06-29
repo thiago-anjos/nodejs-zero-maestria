@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  padding: 16px;
+  border: 1px dotted black;
+}
+
+ul li {
+  padding: 16px;
+  margin: 4px 0;
+  list-style-type: none;
+}
+
+.list-container {
+  display: flex;
+}
+
+.list {
+  border: 1px solid blue;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.form {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+.form-checkbox {
+  flex-direction: row;
+}
+.form-checkbox input {
+  margin-right: 10px;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.form-control input {
+  padding: 5px;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions a,
+.actions input {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.address-container {
+  max-width: 960px;
+  margin: 1em auto;
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+}
+
+.address-container h2 {
+  margin-bottom: 2em;
+}
+
+.address-container form {
+  width: 50%;
+}

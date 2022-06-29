@@ -5,6 +5,8 @@ const app = express();
 
 const conn = require("./db/conn");
 
+const Task = require("./models/Task");
+
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
 
@@ -18,4 +20,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.listen(3000);
+conn
+  .sync()
+  .then(() => {
+    app.listen(300);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

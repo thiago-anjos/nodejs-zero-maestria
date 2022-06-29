@@ -12,4 +12,4 @@ try {
   console.log("não foi possível conectar", error);
 }
 
-exports.default = sequelize;
+module.exports = sequelize;

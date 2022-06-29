@@ -9,7 +9,17 @@ const Task = require("./models/Task");
 
 const tasksRoutes = require("./routes/taskRoutes");
 
-app.engine("handlebars", exphbs.engine());
+app.engine(
+  "handlebars",
+  exphbs.engine({
+    helpers: {
+      toJSON: function (object) {
+        return JSON.stringify(object);
+      },
+    },
+  })
+);
+
 app.set("view engine", "handlebars");
 
 app.use(

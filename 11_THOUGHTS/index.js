@@ -58,13 +58,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
-const toughtRoutes = require("./routes/Thoughts");
+// Routes Thoughts
+const thoughts = require("./routes/thoughtsRoutes");
 const ThoughtController = require("./controllers/ThoughtController");
-
-app.use("/tougths", toughtRoutes);
-
+app.use("/tougths", thoughts);
 app.get("/", ThoughtController.showToughts);
+
+// Routes login
+const authRoutes = require("./routes/authRoutes");
+app.use("/", authRoutes);
 
 conn
   //.sync({force:true})  => serve para recriar as tabelas !!!! cuidado !!!! isso apaga todos os dados

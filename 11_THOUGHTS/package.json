@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js localhost 3000"
+    "start": "npm-run-all --parallel express scss",
+    "express": "nodemon ./index.js localhost 3000 && npm-run-all scss",
+    "scss": "sass --watch ./style/style.scss public/css/style.css"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,8 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.18",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.53.0",
     "sequelize": "^6.21.2",
     "session-file-store": "^1.5.0"
   }

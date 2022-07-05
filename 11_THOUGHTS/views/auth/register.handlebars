@@ -1,9 +1,14 @@
 <div class="auth-container">
   <h2>Registrar</h2>
-  <form action="/register" method="post">
+  <form action="/register" method="POST">
     <div class="form-control">
-      <label for="name">Name</label>
-      <input type="text" name="name" placeholder="Digite o seu nome" required />
+      <label for="username">Name</label>
+      <input
+        type="text"
+        name="username"
+        placeholder="Digite o seu nome"
+        required
+      />
     </div>
     <div class="form-control">
       <label for="email">Email</label>
@@ -18,16 +23,16 @@
       <label for="password">Senha</label>
       <input
         type="password"
-        name="name"
+        name="password"
         placeholder="Digite a sua senha"
         required
       />
     </div>
     <div class="form-control">
-      <label for="password">Confirmação de senha</label>
+      <label for="confirmpassword">Confirmação de senha</label>
       <input
-        type="confirmPassword"
-        name="name"
+        type="confirmpassword"
+        name="confirmpassword"
         placeholder="Confirmaçao de senha"
         required
       />

@@ -102,6 +102,18 @@ footer {
   }
 }
 
+// messages
+.message {
+  padding: 1em;
+  color: #004085;
+  background-color: #ccefff;
+  border: 1px solid #b8daff;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto 2em;
+  max-width: 60%;
+}
+
 //boot
 .mt-4 {
   margin-top: 16px;

@@ -12,7 +12,16 @@ const conn = require("./db/conn");
 const Tought = require("./models/Thought");
 const User = require("./models/User");
 
-app.engine("handlebars", exphbs.engine());
+app.engine(
+  "handlebars",
+  exphbs.engine({
+    helpers: {
+      toJSON: function (object) {
+        return JSON.stringify(object);
+      },
+    },
+  })
+);
 app.set("view engine", "handlebars");
 
 //receber resposta do body

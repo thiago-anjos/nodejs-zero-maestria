@@ -18,5 +18,41 @@ module.exports = class AuthController {
       // finalizar função
       return;
     }
+
+    // cheche if user exist
+    const checkIfUserExist = await User.findOne({ where: { email: email } });
+    if (checkIfUserExist) {
+      req.flash("message", "o e-mail já está em uso");
+      res.render("auth/register");
+      return;
+    }
+
+    //create password
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+    //create object with encripted pass
+    const user = {
+      name: username,
+      email,
+      password: hashedPassword,
+    };
+
+    try {
+      //inicializar session
+      const createdUser = await User.create(user);
+      req.session.userid = createdUser.id;
+
+      req.flash("message", "cadastro realizado com sucesso");
+
+      req.session.save(() => {
+        res.redirect("/");
+      });
+    } catch (error) {
+      console.log("erro ao criar usuário", error);
+    }
+  }
+  static logout(req, res) {
+    req.session.destroy();
+    res.redirect("/login");
   }
 };

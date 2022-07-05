@@ -19,15 +19,29 @@
           <a href="/tougths">Pensamentos</a>
         </li>
         {{! url apos autenticacao }}
-        <li>
-          <a href="/login">Entrar</a>
-        </li>
-        <li>
-          <a href="/register">Registrar</a>
-        </li>
+        {{#if session.userid}}
+
+          <li>
+            <a href="/dashboard">Dashboard</a>
+          </li>
+          <li>
+            <a href="/logout">Sair</a>
+          </li>
+
+        {{else}}
+          <li>
+            <a href="/login">Entrar</a>
+          </li>
+          <li>
+            <a href="/register">Registrar</a>
+          </li>
+
+        {{/if}}
+
       </ul>
     </nav>
     <div class="container">
+      {{session}}
       {{! mensagens }}
       {{#if messages.message}}
         <div class="message">

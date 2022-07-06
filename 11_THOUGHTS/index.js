@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 // Routes Thoughts
 const thoughts = require("./routes/thoughtsRoutes");
 const ThoughtController = require("./controllers/ThoughtController");
-app.use("/tougths", thoughts);
+app.use("/thoughts", thoughts);
 app.get("/", ThoughtController.showToughts);
 
 // Routes login

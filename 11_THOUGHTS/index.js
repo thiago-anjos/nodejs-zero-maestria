@@ -78,7 +78,7 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/", authRoutes);
 
 conn
-  //.sync({force:true})  => serve para recriar as tabelas !!!! cuidado !!!! isso apaga todos os dados
+  //.sync({ force: true }) // serve para recriar as tabelas !!!! cuidado !!!! isso apaga todos os dados
   .sync()
   .then(() => {
     app.listen(3000);

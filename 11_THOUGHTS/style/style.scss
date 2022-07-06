@@ -59,47 +59,6 @@ footer {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  & h2 {
-    margin-bottom: 1em;
-    color: #fff;
-    border-left: 4px solid var(--main-border-color);
-    padding: 0.3em;
-    width: 100px;
-  }
-  & a {
-    color: var(--main-border-color);
-  }
-  .form-control {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-    & label {
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    input,
-    textarea {
-      padding: 7px;
-      border-radius: 3px;
-      border: 1px solid var(--main-border-color);
-    }
-  }
-  input[type="submit"],
-  btn {
-    background-color: transparent;
-    color: var(--main-border-color);
-    border: 2px solid var(--main-border-color);
-    padding: 0.5em 1.2em;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    &:hover {
-      transition: 0.5s;
-      background-color: var(--main-border-color);
-      color: #fff;
-    }
-  }
 }
 
 // messages
@@ -114,7 +73,61 @@ footer {
   max-width: 60%;
 }
 
+// form
+
+h1,
+h2 {
+  margin-bottom: 1em;
+  color: #fff;
+  border-left: 4px solid var(--main-border-color);
+  padding: 0.3em;
+  width: 100%;
+}
+a {
+  color: var(--main-border-color);
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  & label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  input,
+  textarea {
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid var(--main-border-color);
+  }
+}
+input[type="submit"],
+btn {
+  background-color: transparent;
+  color: var(--main-border-color);
+  border: 2px solid var(--main-border-color);
+  padding: 0.5em 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    transition: 0.5s;
+    background-color: var(--main-border-color);
+    color: #fff;
+  }
+}
+
 //boot
 .mt-4 {
   margin-top: 16px;
+}
+
+//thoughts
+.thoughts-form-container {
+  a {
+    &:hover {
+      color: #fff;
+    }
+  }
 }

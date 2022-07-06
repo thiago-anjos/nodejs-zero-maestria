@@ -15,24 +15,19 @@ module.exports = class ThoughtsController {
 
     if (!UserId) return;
 
-    const userExist = await User.findOne({
-      where: { id: UserId },
+    const checkUser = await User.findOne({
+      where: {
+        id: UserId,
+      },
+      include: Tought,
+      plain: true,
     });
 
-    if (!userExist) {
+    if (!checkUser) {
       res.redirect("/login");
     }
-
-    try {
-      const thoughtsUser = await Tought.findAll({
-        where: { UserId: UserId },
-        raw: true,
-      });
-      console.log(thoughtsUser);
-      res.render("thoughts/dashboard", { thoughtsUser });
-    } catch (error) {
-      console.log(error);
-    }
+    const thoughtsUser = checkUser.Toughts.map((item) => item.dataValues);
+    res.render("thoughts/dashboard", { thoughtsUser });
   }
 
   static createThoughts(req, res) {

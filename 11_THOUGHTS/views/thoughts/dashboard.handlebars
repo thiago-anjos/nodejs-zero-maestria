@@ -3,5 +3,10 @@
     <h2>dashboard</h2>
     <a href="/thoughts/add">Criar pensamentos</a>
   </div>
-  <h3>Seus pensamentos</h3>
+  <h3 class="mt-4">Seus pensamentos</h3>
+  <ul class="list mt-4">
+    {{#each thoughtsUser}}
+      <li>{{this.title}}</li>
+    {{/each}}
+  </ul>
 </div>

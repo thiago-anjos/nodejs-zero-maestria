@@ -3,10 +3,36 @@ const User = require("../models/User");
 
 module.exports = class ThoughtsController {
   static async showToughts(req, res) {
-    res.render("thoughts/home");
+    try {
+      const thoughts = await Tought.findAll({ raw: true });
+      res.render("thoughts/home", { thoughts });
+    } catch (error) {
+      console.log(error);
+    }
   }
   static async dashboard(req, res) {
-    res.render("thoughts/dashboard");
+    const UserId = req.session.userid;
+
+    if (!UserId) return;
+
+    const userExist = await User.findOne({
+      where: { id: UserId },
+    });
+
+    if (!userExist) {
+      res.redirect("/login");
+    }
+
+    try {
+      const thoughtsUser = await Tought.findAll({
+        where: { UserId: UserId },
+        raw: true,
+      });
+      console.log(thoughtsUser);
+      res.render("thoughts/dashboard", { thoughtsUser });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static createThoughts(req, res) {

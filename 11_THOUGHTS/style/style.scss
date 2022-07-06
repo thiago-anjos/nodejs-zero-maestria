@@ -131,3 +131,12 @@ btn {
     }
   }
 }
+
+// list
+.list {
+  li {
+    list-style-type: none;
+    border-bottom: 1px solid var(--main-border-color);
+    padding: 1rem 0;
+  }
+}

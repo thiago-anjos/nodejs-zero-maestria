@@ -1,0 +1,20 @@
+<div class="thoughts-form-container">
+  <a href="/thoughts/dashboard">Voltar</a>
+  <h1 class="mt-4">Editar um pensamento</h1>
+
+  {{!-- {{toJSON thought}} --}}
+  <form action="/thoughts/edit" method="post">
+    <input type="hidden" name="id" value="{{thought.id}}" />
+    <div class="form-control mt-4">
+      <label for="title">Pensamento:</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="Digite o seu pensamento..."
+        value="{{thought.title}}"
+      />
+    </div>
+    <input type="submit" value="Editar pensamento" />
+  </form>
+
+</div>

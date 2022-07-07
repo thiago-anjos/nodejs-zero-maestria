@@ -40,13 +40,13 @@ app.use(
     secret: "nosso_secret",
     resave: false,
     saveUninitialized: false,
-    store: new FileStore({
-      logFn: function () {},
-      path: require("path").join(require("os").tmpdir(), "sessions"),
-    }),
+    // store: new FileStore({
+    //   logFn: function () {},
+    //   path: require("path").join(require("os").tmpdir(), "sessions"),
+    // }),
     cookie: {
       secure: false,
-      maxAge: 360000,
+      maxAge: 24 * 60 * 60 * 1000,
       expires: new Date(Date.now() + 360000),
       httpOnly: true,
     },

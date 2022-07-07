@@ -4,9 +4,26 @@
     <a href="/thoughts/add">Criar pensamentos</a>
   </div>
   <h3 class="mt-4">Seus pensamentos</h3>
-  <ul class="list mt-4">
-    {{#each thoughtsUser}}
-      <li>{{this.title}}</li>
-    {{/each}}
-  </ul>
+  {{#if emptyThoughts}}
+
+    <h1>Você é um burro, sem pensamentos</h1>
+
+  {{else}}
+    <ul class="list mt-4">
+      {{#each thoughtsUser}}
+        <li>
+          <span class="label">{{this.title}}</span>
+
+          <span class="actions">
+            <a href="/thoughts/edit/{{this.id}}" class="btn">Editar</a>
+            <form action="/thoughts/remove" method="post">
+              <input type="hidden" name="id" value={{this.id}} />
+              <input type="submit" value="Excluir" class="btn" />
+            </form>
+          </span>
+        </li>
+      {{/each}}
+    </ul>
+
+  {{/if}}
 </div>

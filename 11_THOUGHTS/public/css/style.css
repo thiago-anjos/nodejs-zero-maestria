@@ -130,6 +130,17 @@ btn:hover {
   list-style-type: none;
   border-bottom: 1px solid var(--main-border-color);
   padding: 1rem 0;
+  display: flex;
+}
+.list li .label {
+  flex-grow: 1;
+}
+.list li .actions form input {
+  margin-left: 16px;
+}
+.list li .author {
+  color: yellow;
+  margin-left: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

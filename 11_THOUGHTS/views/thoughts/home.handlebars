@@ -1,7 +1,10 @@
 <h1>Todos os pensamentos</h1>
+{{!-- {{toJSON plainUserThoughts}} --}}
 
 <ul class="list mt-4">
-  {{#each thoughts}}
-    <li>{{this.title}}</li>
+  {{#each plainUserThoughts}}
+    <li>{{this.title}}
+      por
+      <span class="author">- {{this.User.name}}</span></li>
   {{/each}}
 </ul>

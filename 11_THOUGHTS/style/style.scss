@@ -138,5 +138,20 @@ btn {
     list-style-type: none;
     border-bottom: 1px solid var(--main-border-color);
     padding: 1rem 0;
+    display: flex;
+    .label {
+      flex-grow: 1;
+    }
+    .actions {
+      form {
+        input {
+          margin-left: 16px;
+        }
+      }
+    }
+    .author {
+      color: yellow;
+      margin-left: 8px;
+    }
   }
 }

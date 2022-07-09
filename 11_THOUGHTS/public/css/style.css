@@ -101,7 +101,7 @@ a {
 }
 
 input[type=submit],
-btn {
+.btn {
   background-color: transparent;
   color: var(--main-border-color);
   border: 2px solid var(--main-border-color);
@@ -112,7 +112,7 @@ btn {
   text-decoration: none;
 }
 input[type=submit]:hover,
-btn:hover {
+.btn:hover {
   transition: 0.5s;
   background-color: var(--main-border-color);
   color: #fff;
@@ -141,6 +141,58 @@ btn:hover {
 .list li .author {
   color: yellow;
   margin-left: 8px;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-header h1 {
+  margin-bottom: 1em;
+}
+.home-header span {
+  color: var(--main-border-color);
+}
+.home-header p,
+.home-header form {
+  margin-bottom: 1.2em;
+}
+.home-header input[type=text] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 0.5em;
+}
+.home-header input[type=text][type=text] {
+  width: 60%;
+}
+.home-header input[type=text] ::placeholder {
+  color: #fff;
+}
+
+.order-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto 1em;
+}
+.order-container form {
+  margin: 0;
+}
+.order-container form button {
+  margin-bottom: 0;
+  border: none;
+  cursor: pointer;
+}
+.order-container form button :hover {
+  color: var(--main-border-color);
+}
+.order-container i,
+.order-container a {
+  margin: 0 7px;
 }
 
 /*# sourceMappingURL=style.css.map */
